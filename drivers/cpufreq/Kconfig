@@ -216,6 +216,29 @@ config CPU_FREQ_GOV_CONSERVATIVE
 
 	  If in doubt, say N.
 
+config CPU_FREQ_GOV_FLASH
+	tristate "'flash' cpufreq policy governor"
+	help
+	  'flash' - This driver adds a dynamic cpufreq policy governor
+	  designed for latency-sensitive workloads.
+
+	  This governor attempts to reduce the latency of clock
+	  increases so that the system is more responsive to
+	  interactive workloads.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called cpufreq_flash.
+
+	  For details, take a look at linux/Documentation/cpu-freq.
+
+	  If in doubt, say N.
+
+config CPU_FREQ_GOV_ELECTRON
+	tristate "'electron' cpufreq governor"
+	depends on CPU_FREQ
+	help
+	  'electron' - another tuned interactive with extra options
+
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
 	depends on CPU_FREQ
